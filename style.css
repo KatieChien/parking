@@ -1,0 +1,142 @@
+/* 設定整體頁面背景 */
+.container{
+    background-color: #002b45;
+    color: white;
+    font-family: Arial, sans-serif; /* 適合 UI 的字體 */
+    height: 100vh;
+    max-width: 430px;
+    width: 100%;
+    padding: 0 50px !important;
+
+}
+body {
+    background-color: #002b45; /* 深藍色背景 */
+    color: white; /* 文字顏色 */
+    font-family: Arial, sans-serif; /* 適合 UI 的字體 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  /* 標題區塊 */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .logo {
+    width: 50px;
+    height: 50px;
+    background-color: #ffcc33; /* 黃色 Logo 背景 */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: black;
+    font-size: 30px;
+    margin-right: 20px;
+  }
+  .mb-0{
+    letter-spacing: 15px;
+  }
+  
+  /* 表單輸入框 */
+  .form-label {
+    font-size: 14px;
+    letter-spacing: 1px;
+    width: 30%;
+  }
+  
+  .form-control,
+  .form-select {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    
+  }
+  
+  /* 查詢按鈕 */
+  .btn-yellow {
+    background-color: #ffcc33 !important;
+    color: black;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    border-radius: 5px;
+    border: none;
+    margin-top: 15px;
+    align-content: center !important;
+  }
+  
+  .btn-yellow:hover {
+    background-color: #e6b800; /* 深一點的黃色 */
+  }
+  
+  /* 分隔線 */
+  .divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    margin: 20px 0;
+  }
+  
+  /* 其他按鈕 */
+  .btn-light-yellow {
+    background-color: #fff3c1 !important;
+    color: black;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .btn-light-yellow:hover {
+    background-color: #ffea9e;
+  }
+  
+  /* 置中對齊的文字 */
+  .text-center {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .search_list {
+    font-size: 14px;
+    letter-spacing: 1px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .info{
+    margin-bottom: 10px;
+  }
+
+  .btn_edit_n_save{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .editBtn {
+    background-color: #fff3c1 !important;
+    color: black;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    border-radius: 5px;
+    border: none;
+    margin-right: 5px;
+    
+  }
+  .saveBtn {
+    color: white !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    border-radius: 5px;
+    border: 2px solid #e6b800 !important;
+    letter-spacing: 5px;
+    margin-left: 5px;
+    
+  }
+  
