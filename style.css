@@ -42,7 +42,11 @@ body {
   }
   .mb-0{
     letter-spacing: 10px;
+    text-decoration: none; /* 移除底線 */
+    color: white; /* 繼承父元素的顏色 */
+    background-color: #002b45;
   }
+  
   
   /* 表單輸入框 */
   .form-label {
@@ -139,4 +143,5 @@ body {
     margin-left: 5px;
     
   }
+  
   

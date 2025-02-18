@@ -18,45 +18,46 @@
         <div class="w-100 mb-3">
             <div class="info d-flex align-items-center">
                 <label class="form-label">車位</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="text" class="form-control flex-grow-1">
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">姓名</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="text" class="form-control flex-grow-1">
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">租約開始</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="date" class="form-control flex-grow-1" id="startdate">
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">租約結束</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="date" class="form-control flex-grow-1">
+                
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">繳款週期</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <select class="form-select flex-grow-1">
+                    <option value="month">月繳</option>
+                    <option value="two_months">雙月</option>
+                    <option value="year">年繳</option>
+                </select>
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">金額</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="text" class="form-control flex-grow-1">
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">押金</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="text" class="form-control flex-grow-1">
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">備註</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="text" class="form-control flex-grow-1">
             </div>
             </div>
         </div>
         
         <!-- 繳費按鈕 -->
-        <button class="btn btn-yellow w-100 mb-3 font-monospace">繳費</button>
-        <div class="btn_edit_n_save">
-        <!-- 新增租客按鈕 -->
-        <button class="d-grid gap-2 d-md-block btn editBtn w-100" onclick="enableEdit()" id="editBtn">編輯</button>
-        <button class="d-grid gap-2 d-md-block btn saveBtn w-100" onclick="saveEdit()" id="saveBtn">儲存</button>
+        <button class="btn btn-yellow w-100 mb-3 font-monospace" id="addRecord">新增</button>
         </div>
         
     </div>
