@@ -144,4 +144,10 @@ body {
     
   }
   
-  
+  .delete {
+    color: gray;
+    font-size: 12px;
+    padding: 30px 0;
+    text-decoration: none;
+    cursor: pointer;
+  }
