@@ -26,11 +26,11 @@
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">租約開始</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="date" class="form-control flex-grow-1" value="2" readonly>
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">租約結束</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="date" class="form-control flex-grow-1" value="2" readonly>
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">繳款週期</label>
@@ -61,17 +61,34 @@
         <button class="d-grid gap-2 d-md-block btn saveBtn w-100" onclick="saveEdit()" id="saveBtn">儲存</button>
         </div>
 
-        <p id="deleteTenant" class="delete">！刪除此租客資料</p>
-        <div id="deleteModal" class="modal-overlay">
-            <div class="modal">
-                <h3>確認刪除</h3>
-                <p>確定要刪除此租客的所有資料嗎？</p>
-                <button id="confirmDelete" class="btn btn-danger">確認刪除</button>
-                <button id="cancelDelete" class="btn btn-secondary">取消</button>
-            </div>
-        </div>
+    <input class='popup' type="button" value="！刪除此租客資料">
+    <p class='show'></p>
         
     </div>
+
+    
+    <script>
+        var button = document.querySelector('.popup');
+        var showtxt = document.querySelector('.show');
+
+function popup2(e) {
+    var userConfirmed = confirm('確定要刪除該租客資料嗎？');
+    
+    if (userConfirmed) {
+        alert('已刪除'); // 顯示彈跳視窗
+        
+
+        // 2 秒後跳轉到指定頁面
+        setTimeout(function () {
+            window.location.href = 'http://127.0.0.1:5500/index.html'; // 替換為你的跳轉頁面
+        }, 1000);
+    } else {
+        alert('不刪除'); // 顯示彈跳視窗
+    }
+}
+
+button.addEventListener('click', popup2);
+                </script>
     <!-- 連結 JavaScript 檔案 -->
     <script src="script.js"></script>
 </body>
