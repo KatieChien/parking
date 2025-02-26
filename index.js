@@ -34,7 +34,7 @@ fetch(url)
     }
 
     // 導向 `search.html` 並帶入查詢參數
-    window.location.href = `search.html?sheetDropdown=${encodeURIComponent(sheetDropdown)}&queryValue=${encodeURIComponent(queryValue)}`;
+    window.location.href = `search.html?sheetDropdown=${encodeURIComponent(parkingLot)}&queryValue=${encodeURIComponent(parkingSlot)}`;
 });
 
 

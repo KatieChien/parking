@@ -1,3 +1,27 @@
+//編輯解鎖
+function enableEdit() {
+    //全部的Input 解除readonly
+    //document.getElementById('parkingSpot').removeAttribute('readonly');
+    var x = document.getElementsByTagName("input");
+    for ( var counter = 0; counter < x.length; counter++)
+    {
+       x.item(counter).readOnly = "";
+    }  
+    document.getElementById('editBtn').classList.add('d-none');
+    document.getElementById('saveBtn').classList.remove('d-none');
+}
+
+function saveEdit() {
+    //document.getElementById('parkingSpot').setAttribute('readonly', true);
+    var x = document.getElementsByTagName("input");
+    for ( var counter = 0; counter < x.length; counter++)
+    {
+       x.item(counter).readOnly = "readonly";
+    }
+    document.getElementById('saveBtn').classList.add('d-none');
+    document.getElementById('editBtn').classList.remove('d-none');
+}
+
 // 這裡保留原來從 URL 參數獲取的 sheetDropdown
 document.addEventListener("DOMContentLoaded", function() {
     const params = new URLSearchParams(window.location.search);
@@ -38,6 +62,7 @@ async function fetchGoogleSheetData(sheetDropdown, queryValue) {
         }
 
         // 填入 `search.html` 的對應欄位
+        document.getElementById("number").value = tenantData[0] || "";
         document.getElementById("name").value = tenantData[1] || "";
         document.getElementById("startdate").value = tenantData[2] || "";
         document.getElementById("enddate").value = tenantData[3] || "";
@@ -51,6 +76,8 @@ async function fetchGoogleSheetData(sheetDropdown, queryValue) {
     }
 }
 
+
+
 // 儲存更新 Google Sheets
 document.getElementById("saveBtn").addEventListener("click", async function() {
     const params = new URLSearchParams(window.location.search);
@@ -58,6 +85,7 @@ document.getElementById("saveBtn").addEventListener("click", async function() {
     const queryValue = params.get("queryValue");
 
     const updatedData = [
+        document.getElementById("number").value,
         document.getElementById("name").value,
         document.getElementById("startdate").value,
         document.getElementById("enddate").value,
@@ -97,13 +125,15 @@ function popup2(e) {
         alert('已刪除'); // 顯示彈跳視窗
         
 
-        // 2 秒後跳轉到指定頁面
+        // 0.5 秒後跳轉到指定頁面
         setTimeout(function () {
             window.location.href = 'http://katiechien.github.io/parking'; // 替換為你的跳轉頁面
-        }, 1000);
+        }, 500);
     } else {
         alert('不刪除'); // 顯示彈跳視窗
     }
 }
 
     button.addEventListener('click', popup2);
+    
+    
