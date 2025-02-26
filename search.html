@@ -18,35 +18,35 @@
         <div class="w-100 mb-3">
             <div class="info d-flex align-items-center">
                 <label class="form-label">車位</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="text" id="number" class="form-control flex-grow-1" value="2" readonly>
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">姓名</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="text" id="name" class="form-control flex-grow-1" value="2" readonly>
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">租約開始</label>
-                <input type="date" class="form-control flex-grow-1" value="2" readonly>
+                <input type="date" id="startdate" class="form-control flex-grow-1" value="2" readonly>
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">租約結束</label>
-                <input type="date" class="form-control flex-grow-1" value="2" readonly>
+                <input type="date" id="enddate" class="form-control flex-grow-1" value="2" readonly>
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">繳款週期</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="text" id="period" class="form-control flex-grow-1" value="2" readonly>
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">金額</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="text" id="amount" class="form-control flex-grow-1" value="2" readonly>
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">押金</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="text" id="deposit" class="form-control flex-grow-1" value="2" readonly>
             </div>
             <div class="info d-flex align-items-center">
                 <label class="form-label">備註</label>
-                <input type="text" class="form-control flex-grow-1" value="2" readonly>
+                <input type="text" id="note" class="form-control flex-grow-1" value="2" readonly>
             </div>
             </div>
         </div>
@@ -67,28 +67,7 @@
     </div>
 
     
-    <script>
-        var button = document.querySelector('.popup');
-        var showtxt = document.querySelector('.show');
-
-function popup2(e) {
-    var userConfirmed = confirm('確定要刪除該租客資料嗎？');
     
-    if (userConfirmed) {
-        alert('已刪除'); // 顯示彈跳視窗
-        
-
-        // 2 秒後跳轉到指定頁面
-        setTimeout(function () {
-            window.location.href = 'http://katiechien.github.io/parking'; // 替換為你的跳轉頁面
-        }, 1000);
-    } else {
-        alert('不刪除'); // 顯示彈跳視窗
-    }
-}
-
-button.addEventListener('click', popup2);
-                </script>
     <!-- 連結 JavaScript 檔案 -->
-    <script src="script.js"></script>
+    <script src="search.js"></script>
 </body>
