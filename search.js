@@ -85,3 +85,25 @@ document.getElementById("saveBtn").addEventListener("click", async function() {
         console.error("更新 Google Sheets 失敗", error);
     }
 });
+
+
+        var button = document.querySelector('.popup');
+        var showtxt = document.querySelector('.show');
+
+function popup2(e) {
+    var userConfirmed = confirm('確定要刪除該租客資料嗎？');
+    
+    if (userConfirmed) {
+        alert('已刪除'); // 顯示彈跳視窗
+        
+
+        // 2 秒後跳轉到指定頁面
+        setTimeout(function () {
+            window.location.href = 'http://katiechien.github.io/parking'; // 替換為你的跳轉頁面
+        }, 1000);
+    } else {
+        alert('不刪除'); // 顯示彈跳視窗
+    }
+}
+
+    button.addEventListener('click', popup2);
