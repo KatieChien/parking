@@ -24,6 +24,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
     
   }
   
@@ -154,4 +155,8 @@ body {
     border: #002b45;
     width: 100%;
 
+  }
+
+  .d-flex .align-items-center{
+    margin-bottom: 10px;
   }
