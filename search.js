@@ -20,6 +20,36 @@ function saveEdit() {
     }
     document.getElementById('saveBtn').classList.add('d-none');
     document.getElementById('editBtn').classList.remove('d-none');
+
+    var data = {
+        action: "updateTenant",
+        parkingLot: "停車場一",
+        nuber: document.getElementById("number").value,
+        name: document.getElementById("name").value,
+        startdate: document.getElementById("startdate").value,
+        enddate: document.getElementById("enddate").value,
+        period: document.getElementById("period").value,
+        amount: document.getElementById("amount").value,
+        deposit: document.getElementById("deposit").value
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycby9sAT751p2ViYsumirw2pfX1we8Srj7LBpkLBzJwe8Omc_1VNtkcQnL9X7WdWdbv76/exec", {
+        method: "POST",
+        mode: 'cors',  // 確保 CORS 模式開啟
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ key: 'value' })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("更新成功");
+        } else {
+            alert("更新失敗：" + data.message);
+        }
+    })
+    .catch(error => console.error("錯誤:", error));
 }
 
 // 這裡保留原來從 URL 參數獲取的 sheetDropdown
