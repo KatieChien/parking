@@ -52,8 +52,29 @@
         </div>
         
         <!-- 繳費按鈕 -->
-        <button class="btn btn-yellow w-100 mb-3 font-monospace" onclick="paynow()" id="pay">繳費</button>
+        <button class="btn btn-yellow w-100 mb-3 font-monospace btn" onclick="paynow()" id="pay">繳費</button>
+
+        <!-- Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">租約更新</h5>
+          <button type="button" id="closeModalBtn">&times;</button>
+        </div>
+        <div class="modal-body" id="modalContent">
+            載入中...
+        </div>
+        <div class="modal-footer">
+          <button id="closeModalBtn2">複製並更新</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
         
+
         <div class="btn_edit_n_save">
         <!-- 新增租客按鈕 -->
         <button class="d-grid gap-2 d-md-block btn editBtn w-100" onclick="enableEdit()" id="editBtn">編輯</button>

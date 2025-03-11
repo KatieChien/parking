@@ -284,3 +284,48 @@ function paynow() {
         .catch((error) => console.error("錯誤:", error));
     }
 }
+
+
+document.addEventListener("DOMContentLoaded", async function () {
+  const modal = document.getElementById("myModal");
+  const backdrop = document.getElementById("modalBackdrop");
+  const openBtn = document.getElementById("pay");
+  const closeBtns = document.querySelectorAll("#closeModalBtn, #closeModalBtn2");
+  const modalContent = document.getElementById("modalContent");
+
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwEc7oIgRC5ORO8gIx-znF0nh-VXtpXw3uBNWGOukPWQdlqjmML7d_xi4v9-yuBz-2y/exec";
+
+  // 打開 Modal
+  openBtn.addEventListener("click", async function () {
+    modal.classList.add("show");
+    modal.style.display = "block";
+    backdrop.classList.add("show");
+  });
+
+  try {
+      const response = await fetch(scriptURL);
+      const data = await response.json();  // 轉成 JSON 格式
+      console.log("取得的數據:", data); // 偵錯用，看看 data 的內容
+      modalContent.textContent = data.text || "沒有數據";  // 確保 API 回傳正確
+    } catch (error) {
+      modalContent.textContent = "數據載入失敗";
+      console.error("Error fetching data:", error);
+    }
+
+
+  // 關閉 Modal
+  closeBtns.forEach(btn => {
+    btn.addEventListener("click", function () {
+      modal.classList.remove("show");
+      modal.style.display = "none";
+      backdrop.classList.remove("show");
+    });
+  });
+
+  // 點擊遮罩關閉 Modal
+  backdrop.addEventListener("click", function () {
+    modal.classList.remove("show");
+    modal.style.display = "none";
+    backdrop.classList.remove("show");
+  });
+});
