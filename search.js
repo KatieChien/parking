@@ -1,3 +1,5 @@
+var ApiUrl = "https://script.google.com/macros/s/AKfycbz8XzBqxfwH2Bkg2NJ6_SmkcpmLQIVbMux3NtwLkoSqx7ZvfGcvGsGAAHIRl0wMjMlX/exec";
+
 //編輯解鎖
 function enableEdit() {
   //全部的Input 解除readonly
@@ -44,7 +46,7 @@ function saveEdit() {
     document.getElementById("saveBtn").disabled = true;
 
   fetch(
-    "https://script.google.com/macros/s/AKfycbwCac2xlVLplt4i4zrb7BOyf3jo04rbUnMj52fLvci5DSsFodxmRko7VD8S7UiUMRNY/exec",
+    ApiUrl,
     {
       method: "POST",
       //mode: 'cors',  // 確保 CORS 模式開啟
@@ -206,7 +208,7 @@ function popup2(e) {
           nuber: document.getElementById("number").value,
        }
        fetch(
-        "https://script.google.com/macros/s/AKfycbwCac2xlVLplt4i4zrb7BOyf3jo04rbUnMj52fLvci5DSsFodxmRko7VD8S7UiUMRNY/exec",
+        ApiUrl,
         {
           method: "POST",
           //mode: 'cors',  // 確保 CORS 模式開啟
@@ -258,7 +260,7 @@ function paynow() {
        document.getElementById("pay").innerHTML = "請稍候...";
        document.getElementById("pay").disabled = true;
        fetch(
-        "https://script.google.com/macros/s/AKfycbwCac2xlVLplt4i4zrb7BOyf3jo04rbUnMj52fLvci5DSsFodxmRko7VD8S7UiUMRNY/exec",
+        ApiUrl,
         {
           method: "POST",
           //mode: 'cors',  // 確保 CORS 模式開啟
@@ -272,7 +274,11 @@ function paynow() {
         .then((data) => {
           console.log("回應:", data);
           if (data.status == "success") {
-            alert("更新成功");
+            //alert("更新成功");
+            modalContent.textContent = data.notificationText;
+            modal.classList.add("show");
+            modal.style.display = "block";
+
             document.getElementById("pay").innerHTML = "繳費";
             document.getElementById("pay").disabled = false;
           } else {
@@ -285,47 +291,62 @@ function paynow() {
     }
 }
 
-
+var modal;
+var closeBtns;
+var modalContent;
 document.addEventListener("DOMContentLoaded", async function () {
-  const modal = document.getElementById("myModal");
-  const backdrop = document.getElementById("modalBackdrop");
-  const openBtn = document.getElementById("pay");
-  const closeBtns = document.querySelectorAll("#closeModalBtn, #closeModalBtn2");
-  const modalContent = document.getElementById("modalContent");
+   modal = document.getElementById("myModal");
+  //const backdrop = document.getElementById("modalBackdrop");
+  //const openBtn = document.getElementById("pay");
+   closeBtns = document.querySelectorAll("#closeModalBtn, #closeModalBtn2");
+   modalContent = document.getElementById("modalContent");
 
   const scriptURL = "https://script.google.com/macros/s/AKfycbwEc7oIgRC5ORO8gIx-znF0nh-VXtpXw3uBNWGOukPWQdlqjmML7d_xi4v9-yuBz-2y/exec";
 
   // 打開 Modal
-  openBtn.addEventListener("click", async function () {
-    modal.classList.add("show");
-    modal.style.display = "block";
-    backdrop.classList.add("show");
-  });
+  // openBtn.addEventListener("click", async function () {
+  //   modal.classList.add("show");
+  //   modal.style.display = "block";
+  //   backdrop.classList.add("show");
+  // });
 
-  try {
-      const response = await fetch(scriptURL);
-      const data = await response.json();  // 轉成 JSON 格式
-      console.log("取得的數據:", data); // 偵錯用，看看 data 的內容
-      modalContent.textContent = data.text || "沒有數據";  // 確保 API 回傳正確
-    } catch (error) {
-      modalContent.textContent = "數據載入失敗";
-      console.error("Error fetching data:", error);
-    }
+  // try {
+  //     const response = await fetch(scriptURL);
+  //     const data = await response.json();  // 轉成 JSON 格式
+  //     console.log("取得的數據:", data); // 偵錯用，看看 data 的內容
+  //     modalContent.textContent = data.text || "沒有數據";  // 確保 API 回傳正確
+  //   } catch (error) {
+  //     modalContent.textContent = "數據載入失敗";
+  //     console.error("Error fetching data:", error);
+  //   }
 
 
   // 關閉 Modal
   closeBtns.forEach(btn => {
     btn.addEventListener("click", function () {
+      //複製modalContent的文字到剪貼簿
+      var copyText = modalContent.textContent;
+      var temp = document.createElement("textarea");
+      temp.value = copyText;
+      document.body.appendChild(temp);
+      temp.select();
+      temp.setSelectionRange(0, 99999); // For mobile devices
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(temp.value);
+      document.body.removeChild(temp);
+
+
       modal.classList.remove("show");
       modal.style.display = "none";
-      backdrop.classList.remove("show");
+      location.reload();
+      //backdrop.classList.remove("show");
     });
   });
 
   // 點擊遮罩關閉 Modal
-  backdrop.addEventListener("click", function () {
-    modal.classList.remove("show");
-    modal.style.display = "none";
-    backdrop.classList.remove("show");
-  });
+  // backdrop.addEventListener("click", function () {
+  //   modal.classList.remove("show");
+  //   modal.style.display = "none";
+  //   backdrop.classList.remove("show");
+  // });
 });
